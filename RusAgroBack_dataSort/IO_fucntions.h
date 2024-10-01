@@ -50,3 +50,4 @@ nlohmann::json api_request(const char* URL)
         curl_easy_cleanup(curl);
     }
 }
+
