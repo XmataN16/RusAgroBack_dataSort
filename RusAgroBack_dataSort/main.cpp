@@ -43,10 +43,8 @@ int main()
     std::vector<Endpoint4> data4;
 
     // Парсим поля из JSON и заполняем вектор
-    for (const auto& item : jsonData1["data"])
-    {
-        data1.push_back(Endpoint1(item));
-    }
+    loadJSONtoStruct(data1, jsonData1);
+
 
     for (const auto& item : jsonData2["data"])
     {

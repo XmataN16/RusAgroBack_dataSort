@@ -51,3 +51,11 @@ nlohmann::json api_request(const char* URL)
     }
 }
 
+template<typename T>
+void loadJSONtoStruct(std::vector<T>& data, nlohmann::json jsonData)
+{
+    for (const auto& item : jsonData["data"])
+    {
+        data.push_back(T(item));
+    }
+}
