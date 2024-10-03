@@ -49,6 +49,14 @@ struct Measurement
 {
     std::string name;
     std::optional<int> value;      // Некоторые значения измерений — float
+
+    Measurement()
+    {
+        this->name = "NULL";
+        this->value = 0;
+
+    }
+
     // Декларация для сопоставления с JSON
     NLOHMANN_DEFINE_TYPE_INTRUSIVE(Measurement, name, value.value())
 };
@@ -58,7 +66,7 @@ struct Endpoint2
 {
     int field_id;
     std::optional<std::tm> report_time;
-    std::vector<Measurement> measurements;  // Массив измерений
+    std::vector<Measurement> measurements = {Measurement(), Measurement(), Measurement(), Measurement()};  // Массив измерений
 
     // Конструктор для инициализации из JSON
     Endpoint2(const nlohmann::json& jsonData) 
@@ -90,7 +98,7 @@ struct Endpoint2
                 {
                     measurement.value = 0;
                 }
-                measurements.push_back(measurement);
+                measurements[0] = measurement;
             }
             else if (measurementJson["name"] == u8"Густота, тыс. шт/га")
             {
@@ -110,7 +118,7 @@ struct Endpoint2
                 {
                     measurement.value = 0;
                 }
-                measurements.push_back(measurement);
+                measurements[1] = measurement;
             }
             else if (measurementJson["name"] == u8"Дигестия корня, %")
             {
@@ -130,7 +138,7 @@ struct Endpoint2
                 {
                     measurement.value = 0;
                 }
-                measurements.push_back(measurement);
+                measurements[2] = measurement;
             }
             else
             {
@@ -229,5 +237,63 @@ struct Endpoint4
         }
 
         std::cout << "-------------------------------------\n";
+    }
+};
+
+// Структура для хранения декад с данными
+struct ResultMeasurement 
+{
+    std::string date;
+    int density;
+    int root_weight;
+    int digestion;
+    int biological_yield;
+
+    // Конструктор для инициализации из JSON
+    ResultMeasurement()
+    {
+
+    }
+
+    // Функция для вывода данных измерения
+    void print() const 
+    {
+        std::cout << "Date: " << date << std::endl;
+        std::cout << "Density: " << density << std::endl;
+        std::cout << "Root Weight: " << root_weight << std::endl;
+        std::cout << "Digestion: " << digestion << std::endl;
+        std::cout << "Biological Yield: " << biological_yield << std::endl;
+        std::cout << "------------------------" << std::endl;
+    }
+};
+
+// Структура для хранения данных разбитых по декадам
+struct FieldData 
+{
+    std::string pu;
+    std::string field_number;
+    double area;
+    std::string sawing_date;
+    std::vector<ResultMeasurement> ResultsMeasurements;
+
+    // Конструктор для инициализации из JSON
+    FieldData() 
+    {
+
+    }
+
+    // Функция для вывода данных поля
+    void print() const 
+    {
+        std::cout << "PU: " << pu << std::endl;
+        std::cout << "Field Number: " << field_number << std::endl;
+        std::cout << "Area: " << area << std::endl;
+        std::cout << "Sawing Date: " << sawing_date << std::endl;
+        std::cout << "Measurements:" << std::endl;
+        for (const auto& measurement : ResultsMeasurements)
+        {
+            measurement.print();
+        }
+        std::cout << "------------------------" << std::endl;
     }
 };

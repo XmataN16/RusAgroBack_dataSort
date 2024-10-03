@@ -44,27 +44,15 @@ int main()
 
     // Парсим поля из JSON и заполняем вектор
     loadJSONtoStruct(data1, jsonData1);
-
-
-    for (const auto& item : jsonData2["data"])
-    {
-        data2.push_back(Endpoint2(item));
-    }
-
-    for (const auto& item : jsonData3["data"])
-    {
-        data3.push_back(Endpoint3(item));
-    }
-
-    for (const auto& item : jsonData4["data"])
-    {
-        data4.push_back(Endpoint4(item));
-    }
+    loadJSONtoStruct(data2, jsonData2);
+    loadJSONtoStruct(data3, jsonData3);
+    loadJSONtoStruct(data4, jsonData4);
 
     for (int i = 0; i < data4.size(); i++)
     {
-        data3[i].print();
+        data2[i].print();
     }
 
     return 0;
 }
+
