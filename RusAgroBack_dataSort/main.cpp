@@ -9,6 +9,7 @@
 #include <time.h>
 #include <ctime>
 #include <cstdio>
+#include <algorithm>
 #include <nlohmann/json.hpp>
 #include <curl/curl.h>
 #include <omp.h>
@@ -16,7 +17,7 @@
 #include <dates_func.h> // Файл с функциями для работы с типом std::tm (даты)
 #include <data_struct.h> // Файл с описанием структур данных для хранения
 #include <IO_fucntions.h> // Файл с функциями для HTTP запросов и парсинга ответов в JSON формат
-
+#include <decades_functions.h> // Файл с логикой описывающей разбиение данных на декады
 
 int main() 
 {
@@ -37,20 +38,24 @@ int main()
 
 
     // Создаем вектор для хранения полей
-    std::vector<Endpoint1> data1;
-    std::vector<Endpoint2> data2;
-    std::vector<Endpoint3> data3;
-    std::vector<Endpoint4> data4;
+    std::vector<Field> fields;
+    std::vector<HistoryItem> historyItems;
+    std::vector<FieldsGroup> fieldsGroup;
+    std::vector<ScoutReport> scoutReports;
 
     // Парсим поля из JSON и заполняем вектор
-    loadJSONtoStruct(data1, jsonData1);
-    loadJSONtoStruct(data2, jsonData2);
-    loadJSONtoStruct(data3, jsonData3);
-    loadJSONtoStruct(data4, jsonData4);
+    loadJSONtoStruct(fields, jsonData1);
+    loadJSONtoStruct(scoutReports, jsonData2);
+    loadJSONtoStruct(historyItems, jsonData3);
+    loadJSONtoStruct(fieldsGroup, jsonData4);
 
-    for (int i = 0; i < data4.size(); i++)
+    std::vector<TempInstance> resultWithoutMeasurements = calc_result(fields, historyItems, fieldsGroup);
+    chooseDecade(resultWithoutMeasurements, scoutReports);
+
+
+    for (int i = 0; i < resultWithoutMeasurements.size(); i++)
     {
-        data2[i].print();
+        resultWithoutMeasurements[i].print();
     }
 
     return 0;

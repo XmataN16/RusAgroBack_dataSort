@@ -59,3 +59,5 @@ void loadJSONtoStruct(std::vector<T>& data, nlohmann::json jsonData)
         data.push_back(T(item));
     }
 }
+
+

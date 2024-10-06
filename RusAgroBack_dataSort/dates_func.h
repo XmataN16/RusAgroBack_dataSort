@@ -360,3 +360,15 @@ std::optional<std::string> tm_to_str(const std::optional<std::tm>& tm)
     }
 }
 
+// Функция для вывода даты
+void print_tm(const std::optional<std::tm>& date, const std::string& label) 
+{
+    if (date.has_value()) 
+    {
+        std::cout << label << ": " << std::put_time(&*date, "%Y-%m-%d") << "\n";
+    }
+    else 
+    {
+        std::cout << label << ": NULL\n";
+    }
+}

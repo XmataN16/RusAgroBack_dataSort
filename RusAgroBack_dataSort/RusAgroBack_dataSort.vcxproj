@@ -134,6 +134,7 @@
   <ItemGroup>
     <ClInclude Include="data_struct.h" />
     <ClInclude Include="dates_func.h" />
+    <ClInclude Include="decades_functions.h" />
     <ClInclude Include="IO_fucntions.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

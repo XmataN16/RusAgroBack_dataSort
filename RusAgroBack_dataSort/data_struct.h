@@ -1,17 +1,39 @@
 #pragma once
+
+std::string Decades[36] = { u8"1-я декада Января", u8"2-я декада Января", u8"3-я декада Января", u8"1-я декада Февраля", u8"2-я декада Февраля", u8"3-я декада Февраля",
+    u8"1-я декада Марта", u8"2-я декада Марта", u8"3-я декада Марта", u8"1-я декада Апреля", u8"2-я декада Апреля", u8"3-я декада Апреля",
+    u8"1-я декада Мая", u8"2-я декада Мая", u8"3-я декада Мая", u8"1-я декада Июня", u8"2-я декада Июня", u8"3-я декада Июня",
+    u8"1-я декада Июля", u8"2-я декада Июля", u8"3-я декада Июля", u8"1-я декада Августа", u8"2-я декада Августа", u8"3-я декада Августа",
+    u8"1-я декада Сентября", u8"2-я декада Сентября", u8"3-я декада Сентября", u8"1-я декада Октября", u8"2-я декада Октября", u8"3-я декада Октября",
+    u8"1-я декада Ноября", u8"2-я декада Ноября", u8"3-я декада Ноября", u8"1-я декада Декабря", u8"2-я декада Декабря", u8"3-я декада Декабря"
+};
+
+// Функция для вывода std::optional значений
+template <typename T>
+void print_optional(const std::optional<T>& opt, const std::string& label) 
+{
+    if (opt.has_value()) 
+    {
+        std::cout << label << ": " << *opt << "\n";
+    }
+    else {
+        std::cout << label << ": NULL\n";
+    }
+}
+
 // Структура для хранения ответа с первого API запроса
-struct Endpoint1
+struct Field
 {
 public:
     int id;
-    int field_group_id;
+    int group_id;
     std::optional<std::string> name;
     std::optional<double> calculated_area;
 
-    Endpoint1(nlohmann::json jsonData)
+    Field(nlohmann::json jsonData)
     {
         id = jsonData["id"];
-        field_group_id = jsonData["field_group_id"];
+        group_id = jsonData["field_group_id"];
         name = jsonData["name"].is_null() ? std::nullopt : std::optional(jsonData["name"].get<std::string>());
         calculated_area = jsonData["calculated_area"].is_null() ? std::nullopt : std::optional(jsonData["calculated_area"].get<double>());
     }
@@ -19,7 +41,7 @@ public:
     void print()
     {
         std::cout << "id: " << id << std::endl;
-        std::cout << "field_group_id: " << field_group_id << std::endl;
+        std::cout << "field_group_id: " << group_id << std::endl;
         if (name.has_value())
         {
             std::cout << "name: " << name.value() << std::endl;
@@ -41,7 +63,7 @@ public:
     }
 
     // Декларация для сопоставления с JSON
-    NLOHMANN_DEFINE_TYPE_INTRUSIVE(Endpoint1, id, field_group_id, name.value(), calculated_area.value())
+    NLOHMANN_DEFINE_TYPE_INTRUSIVE(Field, id, group_id, name.value(), calculated_area.value())
 };
 
 
@@ -49,27 +71,33 @@ struct Measurement
 {
     std::string name;
     std::optional<int> value;      // Некоторые значения измерений — float
+    std::optional<std::tm> report_date;
 
     Measurement()
     {
         this->name = "NULL";
         this->value = 0;
-
     }
 
-    // Декларация для сопоставления с JSON
-    NLOHMANN_DEFINE_TYPE_INTRUSIVE(Measurement, name, value.value())
+    Measurement(std::optional<std::tm> report_date, Measurement measurement)
+    {
+        this->name = measurement.name;
+        this->value = measurement.value;
+        this->report_date = report_date;
+    }
+
+
 };
 
 // Структура для хранения ответа с второго API запроса
-struct Endpoint2 
+struct ScoutReport
 {
     int field_id;
     std::optional<std::tm> report_time;
     std::vector<Measurement> measurements = {Measurement(), Measurement(), Measurement(), Measurement()};  // Массив измерений
 
     // Конструктор для инициализации из JSON
-    Endpoint2(const nlohmann::json& jsonData) 
+    ScoutReport(const nlohmann::json& jsonData)
     {
         field_id = jsonData["field_id"];
         report_time = jsonData["report_time"].is_null() ? std::nullopt : str_to_tm(std::optional(jsonData["report_time"]));
@@ -184,12 +212,12 @@ struct Endpoint2
 };
 
 // Структура для хранения ответа с третьего API запроса
-struct Endpoint3
+struct HistoryItem
 {
     int field_id;
     std::optional<std::tm> sowing_date;
 
-    Endpoint3(const nlohmann::json& jsonData)
+    HistoryItem(const nlohmann::json& jsonData)
     {
         field_id = jsonData["field_id"];
         sowing_date = jsonData["sowing_date"].is_null() ? std::nullopt : str_to_tm(std::optional(jsonData["sowing_date"]));
@@ -213,12 +241,12 @@ struct Endpoint3
 };
 
 // Структура для хранения ответа с четвертого API запроса
-struct Endpoint4
+struct FieldsGroup
 {
     int id;
     std::optional<std::string> name;
 
-    Endpoint4(const nlohmann::json& jsonData)
+    FieldsGroup(const nlohmann::json& jsonData)
     {
         id = jsonData["id"];
         name = jsonData["name"].is_null() ? std::nullopt : std::optional(jsonData["name"].get<std::string>());
@@ -240,60 +268,125 @@ struct Endpoint4
     }
 };
 
-// Структура для хранения декад с данными
-struct ResultMeasurement 
+struct Decade
 {
-    std::string date;
-    int density;
-    int root_weight;
-    int digestion;
-    int biological_yield;
+    std::string name;
+    std::vector<Measurement> reports;
 
-    // Конструктор для инициализации из JSON
-    ResultMeasurement()
+    Decade()
     {
-
+        this->name = "NULL";
     }
 
-    // Функция для вывода данных измерения
-    void print() const 
+    Decade(std::string name)
     {
-        std::cout << "Date: " << date << std::endl;
-        std::cout << "Density: " << density << std::endl;
-        std::cout << "Root Weight: " << root_weight << std::endl;
-        std::cout << "Digestion: " << digestion << std::endl;
-        std::cout << "Biological Yield: " << biological_yield << std::endl;
-        std::cout << "------------------------" << std::endl;
+        this->name = name;
     }
 };
 
-// Структура для хранения данных разбитых по декадам
-struct FieldData 
+struct TempInstance
 {
-    std::string pu;
-    std::string field_number;
-    double area;
-    std::string sawing_date;
-    std::vector<ResultMeasurement> ResultsMeasurements;
+    std::optional<int> field_id;
+    std::optional<std::string> pu;
+    std::optional<std::string> field_number;
+    std::optional<int> area;
+    std::optional<std::tm> sawing_date;
+    std::vector<Decade> measurements;
 
-    // Конструктор для инициализации из JSON
-    FieldData() 
+    void print() const
     {
-
-    }
-
-    // Функция для вывода данных поля
-    void print() const 
-    {
-        std::cout << "PU: " << pu << std::endl;
-        std::cout << "Field Number: " << field_number << std::endl;
-        std::cout << "Area: " << area << std::endl;
-        std::cout << "Sawing Date: " << sawing_date << std::endl;
-        std::cout << "Measurements:" << std::endl;
-        for (const auto& measurement : ResultsMeasurements)
+        print_optional(field_id, "Field ID: ");
+        print_optional(pu, "pu: ");
+        print_optional(field_number, "field_number: ");
+        print_optional(area, "area: ");
+        print_tm(sawing_date, "sawing_date: ");
+        std::cout << "Measuments: " << std::endl;
+        for (int i = 0; i < measurements.size(); i++)
         {
-            measurement.print();
+            std::cout << "Decade: " << measurements[i].name << std::endl;
+            for (int j = 0; j < measurements[i].reports.size(); j++)
+            {
+                std::cout << "name: " << measurements[i].reports[j].name << std::endl;
+                print_optional(measurements[i].reports[j].value, "value: ");
+            }
         }
-        std::cout << "------------------------" << std::endl;
+        std::cout << "-------------------------------------\n";
     }
 };
+
+struct ResultInstance 
+{
+    int field_id;
+    std::optional<std::string> name;
+    std::optional<std::string> field_number;
+    std::optional<double> calculated_area;
+    std::optional<std::tm> sowing_date;
+    std::optional<std::tm> report_time;
+    std::vector<Decade> measurements;
+
+    ResultInstance()
+    {
+        this->name = std::nullopt;
+        this->field_number = std::nullopt;
+        this->calculated_area = std::nullopt;
+        this->sowing_date = std::nullopt;
+        this->report_time = std::nullopt;
+        for (int i = 0; i < 36; i++)
+        {
+            measurements.push_back(Decade(Decades[i]));
+        }
+    }
+
+    void print() const
+    {
+        if (name.has_value())
+        {
+            std::cout << "name: " << name.value() << std::endl;
+        }
+        else
+        {
+            std::cout << "name: NULL" << std::endl;
+        }
+
+        if (field_number.has_value())
+        {
+            std::cout << "field_number: " << field_number.value() << std::endl;
+        }
+        else
+        {
+            std::cout << "field_number: NULL" << std::endl;
+        }
+
+        if (calculated_area.has_value())
+        {
+            std::cout << "calculated_area: " << calculated_area.value() << std::endl;
+        }
+        else
+        {
+            std::cout << "calculated_area: NULL" << std::endl;
+        }
+
+        if (sowing_date.has_value())
+        {
+            std::tm sowing_date_tm = sowing_date.value();
+            std::cout << "sowing_date: " << std::put_time(&sowing_date_tm, "%Y-%m-%d %H:%M:%S") << std::endl;
+        }
+        else
+        {
+            std::cout << "sowing_date: NULL" << std::endl;
+        }
+
+        if (report_time.has_value())
+        {
+            std::tm report_time_tm = report_time.value();
+            std::cout << "report_time: " << std::put_time(&report_time_tm, "%Y-%m-%d %H:%M:%S") << std::endl;
+        }
+        else
+        {
+            std::cout << "report_time: NULL" << std::endl;
+        }
+
+        std::cout << "-------------------------------------\n";
+    }
+};
+

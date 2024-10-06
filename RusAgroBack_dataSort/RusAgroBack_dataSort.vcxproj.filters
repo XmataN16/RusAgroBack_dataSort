@@ -29,5 +29,8 @@
     <ClInclude Include="dates_func.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="decades_functions.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
