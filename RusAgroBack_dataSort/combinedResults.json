@@ -1,0 +1,902 @@
+[
+    {
+        "calculated_area": 206.0,
+        "field_id": 81481,
+        "field_number": "BL-01-01-01-0023",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-05-09 00:00:00"
+    },
+    {
+        "calculated_area": 122.0,
+        "field_id": 81482,
+        "field_number": "BL-01-01-01-0024",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": null
+    },
+    {
+        "calculated_area": 130.0,
+        "field_id": 81483,
+        "field_number": "BL-01-01-01-0025",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-05-04 00:00:00"
+    },
+    {
+        "calculated_area": 63.0,
+        "field_id": 81484,
+        "field_number": "BL-01-01-01-0026",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-05-01 00:00:00"
+    },
+    {
+        "calculated_area": 122.0,
+        "field_id": 81485,
+        "field_number": "BL-01-01-01-0027",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-04-30 00:00:00"
+    },
+    {
+        "calculated_area": 126.0,
+        "field_id": 81486,
+        "field_number": "BL-01-01-01-0028",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-05-02 00:00:00"
+    },
+    {
+        "calculated_area": 139.0,
+        "field_id": 81487,
+        "field_number": "BL-01-01-01-0029",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-04-17 00:00:00"
+    },
+    {
+        "calculated_area": 100.0,
+        "field_id": 81488,
+        "field_number": "BL-01-01-01-0030",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2023-09-01 00:00:00"
+    },
+    {
+        "calculated_area": 133.0,
+        "field_id": 81489,
+        "field_number": "BL-01-01-01-0031",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2023-09-04 00:00:00"
+    },
+    {
+        "calculated_area": 52.0,
+        "field_id": 81490,
+        "field_number": "BL-01-01-01-0032",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2023-09-05 00:00:00"
+    },
+    {
+        "calculated_area": 174.0,
+        "field_id": 81491,
+        "field_number": "BL-01-01-01-0033",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2023-09-02 00:00:00"
+    },
+    {
+        "calculated_area": 1.0,
+        "field_id": 81492,
+        "field_number": "BL-01-01-01-0131",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": null
+    },
+    {
+        "calculated_area": 11.0,
+        "field_id": 81493,
+        "field_number": "BL-01-01-01-0132",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": null
+    },
+    {
+        "calculated_area": 321.0,
+        "field_id": 81494,
+        "field_number": "BL-01-01-02-0019",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2023-09-07 00:00:00"
+    },
+    {
+        "calculated_area": 40.0,
+        "field_id": 81495,
+        "field_number": "BL-01-01-02-0023",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2023-08-30 00:00:00"
+    },
+    {
+        "calculated_area": 159.0,
+        "field_id": 81496,
+        "field_number": "BL-01-01-02-0024",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2023-08-31 00:00:00"
+    },
+    {
+        "calculated_area": 110.0,
+        "field_id": 81497,
+        "field_number": "BL-01-01-02-0028",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2023-08-29 00:00:00"
+    },
+    {
+        "calculated_area": 24.0,
+        "field_id": 81498,
+        "field_number": "BL-01-01-02-0029",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-05-03 00:00:00"
+    },
+    {
+        "calculated_area": 78.0,
+        "field_id": 81499,
+        "field_number": "BL-01-01-02-0032",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-04-24 00:00:00"
+    },
+    {
+        "calculated_area": 195.0,
+        "field_id": 81500,
+        "field_number": "BL-01-01-02-0033",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-05-20 00:00:00"
+    },
+    {
+        "calculated_area": 57.0,
+        "field_id": 81501,
+        "field_number": "BL-01-01-02-0034",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-04-17 00:00:00"
+    },
+    {
+        "calculated_area": 54.0,
+        "field_id": 81502,
+        "field_number": "BL-01-01-02-0035",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-04-17 00:00:00"
+    },
+    {
+        "calculated_area": 142.0,
+        "field_id": 81503,
+        "field_number": "BL-01-01-02-0036",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-04-03 00:00:00"
+    },
+    {
+        "calculated_area": 23.0,
+        "field_id": 81504,
+        "field_number": "BL-01-01-02-0037",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-05-12 00:00:00"
+    },
+    {
+        "calculated_area": 54.0,
+        "field_id": 81505,
+        "field_number": "BL-01-01-02-0038",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-05-13 00:00:00"
+    },
+    {
+        "calculated_area": 5.0,
+        "field_id": 81506,
+        "field_number": "BL-01-01-02-0123",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-04-11 00:00:00"
+    },
+    {
+        "calculated_area": 29.0,
+        "field_id": 81507,
+        "field_number": "BL-01-01-02-0124",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": null
+    },
+    {
+        "calculated_area": 0.0,
+        "field_id": 81508,
+        "field_number": "BL-01-01-02-0129",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": null
+    },
+    {
+        "calculated_area": 2.0,
+        "field_id": 81509,
+        "field_number": "BL-01-01-02-0132",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": null
+    },
+    {
+        "calculated_area": 68.0,
+        "field_id": 81510,
+        "field_number": "BL-01-01-02-0133",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-05-21 00:00:00"
+    },
+    {
+        "calculated_area": 1.0,
+        "field_id": 81511,
+        "field_number": "BL-01-01-02-0137",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": null
+    },
+    {
+        "calculated_area": 0.0,
+        "field_id": 81512,
+        "field_number": "BL-01-01-02-0224",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": null
+    },
+    {
+        "calculated_area": 11.0,
+        "field_id": 81513,
+        "field_number": "BL-01-01-02-0233",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": null
+    },
+    {
+        "calculated_area": 65.0,
+        "field_id": 81514,
+        "field_number": "BL-01-01-02-0333",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": null
+    },
+    {
+        "calculated_area": 85.0,
+        "field_id": 81515,
+        "field_number": "BL-01-01-03-0005",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-04-23 00:00:00"
+    },
+    {
+        "calculated_area": 200.0,
+        "field_id": 81516,
+        "field_number": "BL-01-01-03-0007",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-04-25 00:00:00"
+    },
+    {
+        "calculated_area": 97.0,
+        "field_id": 81517,
+        "field_number": "BL-01-01-03-0010",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-04-14 00:00:00"
+    },
+    {
+        "calculated_area": 149.0,
+        "field_id": 81518,
+        "field_number": "BL-01-01-03-0011",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-04-18 00:00:00"
+    },
+    {
+        "calculated_area": 283.0,
+        "field_id": 81519,
+        "field_number": "BL-01-01-03-0012",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2023-10-07 00:00:00"
+    },
+    {
+        "calculated_area": 109.0,
+        "field_id": 81520,
+        "field_number": "BL-01-01-03-0017",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-05-12 00:00:00"
+    },
+    {
+        "calculated_area": 96.0,
+        "field_id": 81521,
+        "field_number": "BL-01-01-03-0019",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-05-11 00:00:00"
+    },
+    {
+        "calculated_area": 104.0,
+        "field_id": 81522,
+        "field_number": "BL-01-01-03-0020",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": null
+    },
+    {
+        "calculated_area": 206.0,
+        "field_id": 81523,
+        "field_number": "BL-01-01-03-0021",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-05-12 00:00:00"
+    },
+    {
+        "calculated_area": 280.0,
+        "field_id": 81524,
+        "field_number": "BL-01-01-03-0023",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-04-28 00:00:00"
+    },
+    {
+        "calculated_area": 72.0,
+        "field_id": 81525,
+        "field_number": "BL-01-01-03-0027",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2023-09-25 00:00:00"
+    },
+    {
+        "calculated_area": 106.0,
+        "field_id": 81526,
+        "field_number": "BL-01-01-03-0037",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-05-09 00:00:00"
+    },
+    {
+        "calculated_area": 184.0,
+        "field_id": 81527,
+        "field_number": "BL-01-01-03-0039",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-05-18 00:00:00"
+    },
+    {
+        "calculated_area": 178.0,
+        "field_id": 81528,
+        "field_number": "BL-01-01-03-0040",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-05-08 00:00:00"
+    },
+    {
+        "calculated_area": 188.0,
+        "field_id": 81529,
+        "field_number": "BL-01-01-03-0043",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-04-21 00:00:00"
+    },
+    {
+        "calculated_area": 146.0,
+        "field_id": 81530,
+        "field_number": "BL-01-01-03-0044",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-05-16 00:00:00"
+    },
+    {
+        "calculated_area": 114.0,
+        "field_id": 81531,
+        "field_number": "BL-01-01-03-0112",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2023-09-29 00:00:00"
+    },
+    {
+        "calculated_area": 41.0,
+        "field_id": 81532,
+        "field_number": "BL-01-01-04-0003",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-04-10 00:00:00"
+    },
+    {
+        "calculated_area": 58.0,
+        "field_id": 81533,
+        "field_number": "BL-01-01-04-0004",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-04-15 00:00:00"
+    },
+    {
+        "calculated_area": 100.0,
+        "field_id": 81534,
+        "field_number": "BL-01-01-04-0005",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-04-15 00:00:00"
+    },
+    {
+        "calculated_area": 64.0,
+        "field_id": 81535,
+        "field_number": "BL-01-01-04-0007",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2023-10-08 00:00:00"
+    },
+    {
+        "calculated_area": 146.0,
+        "field_id": 81536,
+        "field_number": "BL-01-01-04-0008",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-05-12 00:00:00"
+    },
+    {
+        "calculated_area": 71.0,
+        "field_id": 81537,
+        "field_number": "BL-01-01-04-0012",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-04-14 00:00:00"
+    },
+    {
+        "calculated_area": 316.0,
+        "field_id": 81538,
+        "field_number": "BL-01-01-04-0014",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-05-14 00:00:00"
+    },
+    {
+        "calculated_area": 93.0,
+        "field_id": 81539,
+        "field_number": "BL-01-01-04-0015",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-05-25 00:00:00"
+    },
+    {
+        "calculated_area": 15.0,
+        "field_id": 81540,
+        "field_number": "BL-01-01-04-0018",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": null
+    },
+    {
+        "calculated_area": 129.0,
+        "field_id": 81541,
+        "field_number": "BL-01-01-04-0022",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-05-13 00:00:00"
+    },
+    {
+        "calculated_area": 87.0,
+        "field_id": 81542,
+        "field_number": "BL-01-01-04-0023",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-05-12 00:00:00"
+    },
+    {
+        "calculated_area": 221.0,
+        "field_id": 81543,
+        "field_number": "BL-01-01-04-0025",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-05-14 00:00:00"
+    },
+    {
+        "calculated_area": 0.0,
+        "field_id": 81544,
+        "field_number": "BL-01-01-04-0112",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": null
+    },
+    {
+        "calculated_area": 3.0,
+        "field_id": 81545,
+        "field_number": "BL-01-01-04-0115",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-04-20 00:00:00"
+    },
+    {
+        "calculated_area": 0.0,
+        "field_id": 81546,
+        "field_number": "BL-01-01-04-0122",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": null
+    },
+    {
+        "calculated_area": 106.0,
+        "field_id": 81547,
+        "field_number": "BL-01-01-04-0125",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": null
+    },
+    {
+        "calculated_area": 57.0,
+        "field_id": 81548,
+        "field_number": "BL-01-01-06-0001",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-05-02 00:00:00"
+    },
+    {
+        "calculated_area": 32.0,
+        "field_id": 81549,
+        "field_number": "BL-01-01-06-0002",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": null
+    },
+    {
+        "calculated_area": 35.0,
+        "field_id": 81550,
+        "field_number": "BL-01-01-06-0003",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-05-03 00:00:00"
+    },
+    {
+        "calculated_area": 38.0,
+        "field_id": 81551,
+        "field_number": "BL-01-01-06-0007",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-05-10 00:00:00"
+    },
+    {
+        "calculated_area": 38.0,
+        "field_id": 81552,
+        "field_number": "BL-01-01-06-0008",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-05-11 00:00:00"
+    },
+    {
+        "calculated_area": 25.0,
+        "field_id": 81553,
+        "field_number": "BL-01-01-06-0009",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-05-11 00:00:00"
+    },
+    {
+        "calculated_area": 53.0,
+        "field_id": 81554,
+        "field_number": "BL-01-01-06-0011",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-06-05 00:00:00"
+    },
+    {
+        "calculated_area": 9.0,
+        "field_id": 81555,
+        "field_number": "BL-01-01-06-0012",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": null
+    },
+    {
+        "calculated_area": 8.0,
+        "field_id": 81556,
+        "field_number": "BL-01-01-06-0013",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-05-03 00:00:00"
+    },
+    {
+        "calculated_area": 41.0,
+        "field_id": 81557,
+        "field_number": "BL-01-01-06-0014",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-04-11 00:00:00"
+    },
+    {
+        "calculated_area": 36.0,
+        "field_id": 81558,
+        "field_number": "BL-01-01-06-0016",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-04-11 00:00:00"
+    },
+    {
+        "calculated_area": 29.0,
+        "field_id": 81559,
+        "field_number": "BL-01-01-06-0017",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-04-12 00:00:00"
+    },
+    {
+        "calculated_area": 37.0,
+        "field_id": 81560,
+        "field_number": "BL-01-01-07-0001",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": null
+    },
+    {
+        "calculated_area": 43.0,
+        "field_id": 81561,
+        "field_number": "BL-01-01-07-0003",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-04-12 00:00:00"
+    },
+    {
+        "calculated_area": 17.0,
+        "field_id": 81562,
+        "field_number": "BL-01-01-07-0005",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-04-21 00:00:00"
+    },
+    {
+        "calculated_area": 63.0,
+        "field_id": 81563,
+        "field_number": "BL-01-01-07-0007",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": null
+    },
+    {
+        "calculated_area": 48.0,
+        "field_id": 81564,
+        "field_number": "BL-01-01-07-0013",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-04-12 00:00:00"
+    },
+    {
+        "calculated_area": 18.0,
+        "field_id": 81565,
+        "field_number": "BL-01-01-07-0016",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2023-09-27 00:00:00"
+    },
+    {
+        "calculated_area": 6.0,
+        "field_id": 81566,
+        "field_number": "BL-01-01-07-0017",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2023-09-27 00:00:00"
+    },
+    {
+        "calculated_area": 32.0,
+        "field_id": 81567,
+        "field_number": "BL-01-01-07-0019",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-04-21 00:00:00"
+    },
+    {
+        "calculated_area": 79.0,
+        "field_id": 81568,
+        "field_number": "BL-01-01-07-0027",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2023-09-28 00:00:00"
+    },
+    {
+        "calculated_area": 27.0,
+        "field_id": 81569,
+        "field_number": "BL-01-01-08-0005",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-04-10 00:00:00"
+    },
+    {
+        "calculated_area": 13.0,
+        "field_id": 81570,
+        "field_number": "BL-01-01-08-0006",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-04-10 00:00:00"
+    },
+    {
+        "calculated_area": 56.0,
+        "field_id": 81571,
+        "field_number": "BL-01-01-08-0009",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-04-09 00:00:00"
+    },
+    {
+        "calculated_area": 37.0,
+        "field_id": 81572,
+        "field_number": "BL-01-01-08-0012",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": null
+    },
+    {
+        "calculated_area": 17.0,
+        "field_id": 81573,
+        "field_number": "BL-01-01-09-0001",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": null
+    },
+    {
+        "calculated_area": 40.0,
+        "field_id": 81574,
+        "field_number": "BL-01-01-09-0006",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-04-20 00:00:00"
+    },
+    {
+        "calculated_area": 72.0,
+        "field_id": 81575,
+        "field_number": "BL-01-01-09-0007",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-04-20 00:00:00"
+    },
+    {
+        "calculated_area": 69.0,
+        "field_id": 81576,
+        "field_number": "BL-01-01-09-0009",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-04-09 00:00:00"
+    },
+    {
+        "calculated_area": 13.0,
+        "field_id": 81577,
+        "field_number": "BL-01-01-09-0010",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": null
+    },
+    {
+        "calculated_area": 24.0,
+        "field_id": 81578,
+        "field_number": "BL-01-01-09-0011",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": null
+    },
+    {
+        "calculated_area": 25.0,
+        "field_id": 81579,
+        "field_number": "BL-01-01-09-0012",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": "2024-04-09 00:00:00"
+    },
+    {
+        "calculated_area": 26.0,
+        "field_id": 81580,
+        "field_number": "BL-01-01-09-0013",
+        "measurements": null,
+        "name": "ПУ Малотроицкий (новое)",
+        "report_time": null,
+        "sowing_date": null
+    }
+]

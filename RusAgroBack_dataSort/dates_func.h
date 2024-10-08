@@ -372,3 +372,12 @@ void print_tm(const std::optional<std::tm>& date, const std::string& label)
         std::cout << label << ": NULL\n";
     }
 }
+
+// Вспомогательная функция для преобразования даты
+std::time_t stringToTime(const std::string& dateStr) 
+{
+    std::tm tm = {};
+    std::istringstream ss(dateStr);
+    ss >> std::get_time(&tm, "%Y-%m-%d");  // ожидается формат YYYY-MM-DD
+    return std::mktime(&tm);
+}

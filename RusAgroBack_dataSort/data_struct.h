@@ -66,27 +66,10 @@ public:
     NLOHMANN_DEFINE_TYPE_INTRUSIVE(Field, id, group_id, name.value(), calculated_area.value())
 };
 
-
-struct Measurement 
+struct Measurement
 {
-    std::string name;
-    std::optional<int> value;      // Некоторые значения измерений — float
-    std::optional<std::tm> report_date;
-
-    Measurement()
-    {
-        this->name = "NULL";
-        this->value = 0;
-    }
-
-    Measurement(std::optional<std::tm> report_date, Measurement measurement)
-    {
-        this->name = measurement.name;
-        this->value = measurement.value;
-        this->report_date = report_date;
-    }
-
-
+    std::optional<std::string> name;
+    std::optional<float> value;
 };
 
 // Структура для хранения ответа с второго API запроса
@@ -94,89 +77,56 @@ struct ScoutReport
 {
     int field_id;
     std::optional<std::tm> report_time;
-    std::vector<Measurement> measurements = {Measurement(), Measurement(), Measurement(), Measurement()};  // Массив измерений
+    std::vector<Measurement> measurements = {Measurement(), Measurement(), Measurement()};  // Массив измерений
 
     // Конструктор для инициализации из JSON
-    ScoutReport(const nlohmann::json& jsonData)
+    ScoutReport(const nlohmann::json& jsonData) 
     {
         field_id = jsonData["field_id"];
         report_time = jsonData["report_time"].is_null() ? std::nullopt : str_to_tm(std::optional(jsonData["report_time"]));
 
-        // Парсинг массива measurements
-        for (const auto& measurementJson : jsonData["measurements"]) 
+        // Проверяем, существует ли массив measurements и является ли он массивом
+        if (jsonData.contains("measurements") && jsonData["measurements"].is_array()) 
         {
-            Measurement measurement;
-            //std::cout << measurementJson["name"] << std::endl;
-            if (measurementJson["name"] == u8"Средний вес корня, грамм")
+            for (const auto& measurementJson : jsonData["measurements"]) 
             {
+                Measurement measurement;
 
-                if (measurementJson.contains("name") && measurementJson["name"].is_string())
+                if (measurementJson.contains("name") && measurementJson["name"].is_string()) 
                 {
                     measurement.name = measurementJson["name"];
                 }
-                else
-                {
+                else {
                     std::cerr << "Measurement 'name' is missing or not a string\n";
                 }
-                if (measurementJson.contains("value") && measurementJson["value"].is_number())
+
+                if (measurementJson.contains("value") && measurementJson["value"].is_number()) 
                 {
                     measurement.value = measurementJson["value"];
                 }
-                else
+                else 
                 {
-                    measurement.value = 0;
+                    measurement.value = 0; // или обработка ошибки
                 }
-                measurements[0] = measurement;
+
+                if (measurementJson["name"] == u8"Средний вес корня, грамм") 
+                {
+                    measurements[0] = measurement;
+                }
+                else if (measurementJson["name"] == u8"Густота, тыс. шт/га") 
+                {
+                    measurements[1] = measurement;
+                }
+                else if (measurementJson["name"] == u8"Дигестия корня, %") 
+                {
+                    measurements[2] = measurement;
+                }
             }
-            else if (measurementJson["name"] == u8"Густота, тыс. шт/га")
-            {
-                if (measurementJson.contains("name") && measurementJson["name"].is_string())
-                {
-                    measurement.name = measurementJson["name"];
-                }
-                else
-                {
-                    std::cerr << "Measurement 'name' is missing or not a string\n";
-                }
-                if (measurementJson.contains("value") && measurementJson["value"].is_number())
-                {
-                    measurement.value = measurementJson["value"];
-                }
-                else
-                {
-                    measurement.value = 0;
-                }
-                measurements[1] = measurement;
-            }
-            else if (measurementJson["name"] == u8"Дигестия корня, %")
-            {
-                if (measurementJson.contains("name") && measurementJson["name"].is_string())
-                {
-                    measurement.name = measurementJson["name"];
-                }
-                else
-                {
-                    std::cerr << "Measurement 'name' is missing or not a string\n";
-                }
-                if (measurementJson.contains("value") && measurementJson["value"].is_number())
-                {
-                    measurement.value = measurementJson["value"];
-                }
-                else
-                {
-                    measurement.value = 0;
-                }
-                measurements[2] = measurement;
-            }
-            else
-            {
-                continue;
-            }
-            
         }
-
-        // Парсинг изображений
-
+        else 
+        {
+            std::cerr << "No measurements found or measurements is not an array.\n";
+        }
     }
 
     void print() const
@@ -196,7 +146,7 @@ struct ScoutReport
         std::cout << "Measurements:" << std::endl;
         for (const auto& measurement : measurements)
         {
-            std::cout << "  name: " << measurement.name << std::endl;
+            std::cout << "  name: " << measurement.name.value() << std::endl;
             if (measurement.value.has_value())
             {
                 std::cout << "  value: " << measurement.value.value() << std::endl;
@@ -268,125 +218,71 @@ struct FieldsGroup
     }
 };
 
-struct Decade
+struct DecadeMeasurement
 {
-    std::string name;
-    std::vector<Measurement> reports;
+    std::string name_decade;
+    std::optional<ScoutReport> report;
 
-    Decade()
+    void print() const
     {
-        this->name = "NULL";
+        std::cout << "Decade: " << name_decade << std::endl;
+        if (report.has_value())
+        {
+            report->print();
+        }
+        else
+        {
+            std::cout << "No report available" << std::endl;
+        }
     }
 
-    Decade(std::string name)
+    DecadeMeasurement(std::string name_decade)
     {
-        this->name = name;
+        this->name_decade = name_decade;
+        this->report = std::nullopt;
     }
+};
+
+struct ResultDecadeMeasurement
+{
+    std::string name_decade;
+    std::optional<std::vector<Measurement>> report;
 };
 
 struct TempInstance
 {
-    std::optional<int> field_id;
+    int field_id;
     std::optional<std::string> pu;
     std::optional<std::string> field_number;
-    std::optional<int> area;
+    std::optional<float> area;
     std::optional<std::tm> sawing_date;
-    std::vector<Decade> measurements;
+    std::vector<DecadeMeasurement> decade_measurements;
 
+    // Метод print для вывода данных
     void print() const
     {
-        print_optional(field_id, "Field ID: ");
-        print_optional(pu, "pu: ");
-        print_optional(field_number, "field_number: ");
-        print_optional(area, "area: ");
-        print_tm(sawing_date, "sawing_date: ");
-        std::cout << "Measuments: " << std::endl;
-        for (int i = 0; i < measurements.size(); i++)
+        std::cout << "Field ID: " << field_id << std::endl;
+        print_optional(pu, "PU: ");
+        print_optional(field_number, "Field number: ");
+        print_optional(area, "Area: ");
+        print_tm(sawing_date, "Sawing date: ");
+
+        std::cout << "Decade Measurements: " << std::endl;
+        for (const auto& decade : decade_measurements)
         {
-            std::cout << "Decade: " << measurements[i].name << std::endl;
-            for (int j = 0; j < measurements[i].reports.size(); j++)
-            {
-                std::cout << "name: " << measurements[i].reports[j].name << std::endl;
-                print_optional(measurements[i].reports[j].value, "value: ");
-            }
+            decade.print();
         }
+
         std::cout << "-------------------------------------\n";
     }
+
 };
 
-struct ResultInstance 
+struct ResultInstance
 {
-    int field_id;
-    std::optional<std::string> name;
-    std::optional<std::string> field_number;
-    std::optional<double> calculated_area;
-    std::optional<std::tm> sowing_date;
-    std::optional<std::tm> report_time;
-    std::vector<Decade> measurements;
-
-    ResultInstance()
-    {
-        this->name = std::nullopt;
-        this->field_number = std::nullopt;
-        this->calculated_area = std::nullopt;
-        this->sowing_date = std::nullopt;
-        this->report_time = std::nullopt;
-        for (int i = 0; i < 36; i++)
-        {
-            measurements.push_back(Decade(Decades[i]));
-        }
-    }
-
-    void print() const
-    {
-        if (name.has_value())
-        {
-            std::cout << "name: " << name.value() << std::endl;
-        }
-        else
-        {
-            std::cout << "name: NULL" << std::endl;
-        }
-
-        if (field_number.has_value())
-        {
-            std::cout << "field_number: " << field_number.value() << std::endl;
-        }
-        else
-        {
-            std::cout << "field_number: NULL" << std::endl;
-        }
-
-        if (calculated_area.has_value())
-        {
-            std::cout << "calculated_area: " << calculated_area.value() << std::endl;
-        }
-        else
-        {
-            std::cout << "calculated_area: NULL" << std::endl;
-        }
-
-        if (sowing_date.has_value())
-        {
-            std::tm sowing_date_tm = sowing_date.value();
-            std::cout << "sowing_date: " << std::put_time(&sowing_date_tm, "%Y-%m-%d %H:%M:%S") << std::endl;
-        }
-        else
-        {
-            std::cout << "sowing_date: NULL" << std::endl;
-        }
-
-        if (report_time.has_value())
-        {
-            std::tm report_time_tm = report_time.value();
-            std::cout << "report_time: " << std::put_time(&report_time_tm, "%Y-%m-%d %H:%M:%S") << std::endl;
-        }
-        else
-        {
-            std::cout << "report_time: NULL" << std::endl;
-        }
-
-        std::cout << "-------------------------------------\n";
-    }
+    std::optional<std::string> pu;
+    std::string field_number;
+    float area;
+    std::optional<std::tm> sawing_date;
+    std::vector<ResultDecadeMeasurement> decade_measurements;
 };
-

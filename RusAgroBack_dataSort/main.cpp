@@ -10,6 +10,7 @@
 #include <ctime>
 #include <cstdio>
 #include <algorithm>
+#include <stdexcept>
 #include <nlohmann/json.hpp>
 #include <curl/curl.h>
 #include <omp.h>
@@ -49,14 +50,16 @@ int main()
     loadJSONtoStruct(historyItems, jsonData3);
     loadJSONtoStruct(fieldsGroup, jsonData4);
 
+    // Собираем данные в структуру TempInstance
     std::vector<TempInstance> resultWithoutMeasurements = calc_result(fields, historyItems, fieldsGroup);
-    chooseDecade(resultWithoutMeasurements, scoutReports);
+    // Разбиваем данные по декадам
+    std::vector<TempInstance> resultWithReports = chooseDecade(resultWithoutMeasurements, scoutReports);
+    // Применяем фильтрацию по дате отчётов
+    std::vector<ResultInstance> resultWithFilteredReports = filterMaxReportDate(resultWithReports);
+    // Вычисляем биологическую урожайность
+    std::vector<ResultInstance> finalResult = calcBiological(resultWithFilteredReports);
 
-
-    for (int i = 0; i < resultWithoutMeasurements.size(); i++)
-    {
-        resultWithoutMeasurements[i].print();
-    }
+    saveResultToFile(finalResult, "result.json");
 
     return 0;
 }
