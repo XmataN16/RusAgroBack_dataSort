@@ -146,7 +146,14 @@ struct ScoutReport
         std::cout << "Measurements:" << std::endl;
         for (const auto& measurement : measurements)
         {
-            std::cout << "  name: " << measurement.name.value() << std::endl;
+            if (measurement.name.has_value())
+            {
+                std::cout << "  name: " << measurement.name.value() << std::endl;
+            }
+            else
+            {
+                std::cout << "  value: NULL" << std::endl;
+            }
             if (measurement.value.has_value())
             {
                 std::cout << "  value: " << measurement.value.value() << std::endl;
