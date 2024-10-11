@@ -37,6 +37,7 @@ std::vector<TempInstance> calc_result(std::vector<Field> fields, std::vector<His
 			if (instance.field_id == historyItems[obj].field_id and historyItems[obj].sowing_date.has_value())
 			{
 				instance.sawing_date = historyItems[obj].sowing_date;
+                instance.year = historyItems[obj].sowing_date.value().tm_year + 1900;
 			}
 		}
 		for (int i = 0; i < 36; i++)
@@ -64,46 +65,54 @@ std::vector<TempInstance> chooseDecade(std::vector<TempInstance>& res, const std
         // Ищем TempInstance с соответствующим field_id
         for (int index_el = 0; index_el < res.size(); index_el++)
         {
-            if (res[index_el].field_id == report.field_id)
+            if (res[index_el].year.has_value())
             {
-                currentElement = &res[index_el];
-                // Определение декады
-                int month = date.tm_mon;  // Месяц от 0 до 11
-                int day = date.tm_mday;   // День месяца
+                if (res[index_el].field_id == report.field_id and res[index_el].year.value() == (report.report_time.value().tm_year + 1900))
+                {
+                    currentElement = &res[index_el];
+                    // Определение декады
+                    int month = date.tm_mon;  // Месяц от 0 до 11
+                    int day = date.tm_mday;   // День месяца
 
-                int decadeIndex = -1;
-                if (day >= 1 && day <= 10)
-                {
-                    decadeIndex = month * 3;       // 1-я декада
-                }
-                else if (day >= 11 && day <= 20)
-                {
-                    decadeIndex = month * 3 + 1;   // 2-я декада
-                }
-                else if (day >= 21 && day <= 31)
-                {
-                    decadeIndex = month * 3 + 2;   // 3-я декада
-                }
-
-                // Проверяем корректность индекса декады
-                if (decadeIndex >= 0 && decadeIndex < static_cast<int>(currentElement->decade_measurements.size()))
-                {
-                    // Для каждой метрики в отчёте создаём объект Measurement и добавляем в reports
-                    for (const auto& meas : report.measurements)
+                    int decadeIndex = -1;
+                    if (day >= 1 && day <= 10)
                     {
-                        Measurement newMeasurement;
-                        newMeasurement.name = meas.name;
-                        newMeasurement.value = meas.value;
+                        decadeIndex = month * 3;       // 1-я декада
+                    }
+                    else if (day >= 11 && day <= 20)
+                    {
+                        decadeIndex = month * 3 + 1;   // 2-я декада
+                    }
+                    else if (day >= 21 && day <= 31)
+                    {
+                        decadeIndex = month * 3 + 2;   // 3-я декада
+                    }
 
-                        // Добавляем новый Measurement в соответствующую декаду
-                        currentElement->decade_measurements[decadeIndex].report = report;  // Предположим, что report хранит Measurement
+                    // Проверяем корректность индекса декады
+                    if (decadeIndex >= 0 && decadeIndex < static_cast<int>(currentElement->decade_measurements.size()))
+                    {
+                        // Для каждой метрики в отчёте создаём объект Measurement и добавляем в reports
+                        for (const auto& meas : report.measurements)
+                        {
+                            Measurement newMeasurement;
+                            newMeasurement.name = meas.name;
+                            newMeasurement.value = meas.value;
+
+                            // Добавляем новый Measurement в соответствующую декаду
+                            currentElement->decade_measurements[decadeIndex].report = report;  // Предположим, что report хранит Measurement
+                        }
+                    }
+                    else
+                    {
+                        // Обработка некорректного индекса декады, если необходимо
                     }
                 }
-                else
-                {
-                    // Обработка некорректного индекса декады, если необходимо
-                }
             }
+            else
+            {
+                continue;
+            }
+
         }
 
         if (!currentElement)
@@ -129,6 +138,7 @@ std::vector<ResultInstance> filterMaxReportDate(const std::vector<TempInstance>&
         res.field_number = temp.field_number.value_or("");
         res.area = temp.area.value_or(0.0f);
         res.sawing_date = temp.sawing_date;
+        res.year = temp.year;
 
         // Обрабатываем каждую декаду
         for (const auto& decade_measurement : temp.decade_measurements)

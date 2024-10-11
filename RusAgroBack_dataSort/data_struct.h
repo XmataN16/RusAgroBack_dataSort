@@ -174,10 +174,12 @@ struct HistoryItem
     int field_id;
     std::optional<std::tm> sowing_date;
 
+
     HistoryItem(const nlohmann::json& jsonData)
     {
         field_id = jsonData["field_id"];
         sowing_date = jsonData["sowing_date"].is_null() ? std::nullopt : str_to_tm(std::optional(jsonData["sowing_date"]));
+
     }
 
     void print() const
@@ -263,6 +265,7 @@ struct TempInstance
     std::optional<std::string> field_number;
     std::optional<float> area;
     std::optional<std::tm> sawing_date;
+    std::optional<int> year;
     std::vector<DecadeMeasurement> decade_measurements;
 
     // Метод print для вывода данных
@@ -291,5 +294,6 @@ struct ResultInstance
     std::string field_number;
     float area;
     std::optional<std::tm> sawing_date;
+    std::optional<int> year;
     std::vector<ResultDecadeMeasurement> decade_measurements;
 };

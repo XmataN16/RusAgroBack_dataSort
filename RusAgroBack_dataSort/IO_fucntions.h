@@ -203,6 +203,14 @@ void saveResultToFile(const std::vector<ResultInstance>& result, const std::stri
         {
             instanceJson["sawing_date"] = nullptr;
         }
+        if (instance.year.has_value())
+        {
+            instanceJson["year"] = instance.year.value();
+        }
+        else
+        {
+            instanceJson["year"] = nullptr;
+        }
 
         // Добавляем measurements для каждой декады
         for (const auto& measurement : instance.decade_measurements)
